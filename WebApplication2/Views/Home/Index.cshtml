@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div ng-controller="indexController">
+    <div ng-if="done">Ok</div>
+    <button ng-click="execute()" class="btn btn-primary">Execute</button>
+</div>
+
+<script src="~/Scripts/lib/angular/angular.min.js"></script>
+<script>
+    var app = angular.module('app', []).controller('indexController', function($scope, $http) {
+        $scope.execute = function() {
+            $http.post('/api/sproc').then(function() {
+                $scope.done = true;
+            });
+        };
+    })
+</script>

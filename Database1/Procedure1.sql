@@ -1,0 +1,5 @@
+﻿CREATE PROCEDURE [dbo].[Procedure1]
+AS
+	DECLARE @date DATETIME = GETDATE()
+	INSERT INTO [MyTable] VALUES ( @date )
+RETURN 0
